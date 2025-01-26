@@ -21,7 +21,7 @@ public class SearchTest extends BaseTest {
     @Test
     @DisplayName("Успешный поиск по слову")
     @Description("Ищем материалы по слову  'качество'")
-    public void searchFindAnyByWordInContentTest() {
+    public void findAnyByWordInContentTest() {
         String searchText = "качество";
         setValueToInput(By.id("search-searchword"), searchText);
         clickOnElement(By.id("searchphraseany"));
@@ -36,10 +36,40 @@ public class SearchTest extends BaseTest {
     @Test
     @DisplayName("Неуспешный поиск по слову")
     @Description("Ищем материалы по слову 'качампваа'")
-    public void searchFindNoneByWordInContentTest() {
+    public void sfindNoneByWordInContentTest() {
         String searchText = "качампваа";
         setValueToInput(By.id("search-searchword"), searchText);
         clickOnElement(By.id("searchphraseany"));
+        clickOnElement(By.id("area-content"));
+        clickOnElement(By.name("Search"));
+        String value = getTextFromElement(By.xpath("//form[@id='searchForm']/div/p/strong"));
+        int count = Integer.parseInt(value.split(" ")[3]);
+        log.info("Total count {}", count);
+        Assertions.assertEquals(count, 0);
+    }
+
+    @Test
+    @DisplayName("Успешный поиск по словосочетанию")
+    @Description("Ищем материалы по слову  'качество'")
+    public void findByAllWordsInContentTest() {
+        String searchText = "качество образования";
+        setValueToInput(By.id("search-searchword"), searchText);
+        clickOnElement(By.id("searchphraseall-lbl"));
+        clickOnElement(By.id("area-content"));
+        clickOnElement(By.name("Search"));
+        String value = getTextFromElement(By.xpath("//form[@id='searchForm']/div/p/strong"));
+        int count = Integer.parseInt(value.split(" ")[3]);
+        log.info("Total count {}", count);
+        Assertions.assertTrue(count > 0);
+    }
+
+    @Test
+    @DisplayName("Неуспешный поиск по словосочетанию")
+    @Description("Ищем материалы по слову  'качество'")
+    public void findNoneByAllWordsInContentTest() {
+        String searchText = "качество обрезания";
+        setValueToInput(By.id("search-searchword"), searchText);
+        clickOnElement(By.id("searchphraseall-lbl"));
         clickOnElement(By.id("area-content"));
         clickOnElement(By.name("Search"));
         String value = getTextFromElement(By.xpath("//form[@id='searchForm']/div/p/strong"));

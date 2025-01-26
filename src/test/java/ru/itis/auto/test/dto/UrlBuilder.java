@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class UrlBuilder {
 
@@ -30,6 +31,13 @@ public class UrlBuilder {
     }
 
     public String buildUrl() {
-        return baseUrl + String.join("/", paths);
+        StringBuilder path = new StringBuilder(baseUrl);
+        path.append(String.join("/", paths));
+        if (!params.isEmpty()) {
+            path.append("?").append(params.entrySet().stream()
+                    .map(entry -> entry.getKey() + "=" + entry.getValue())
+                    .collect(Collectors.joining("&")));
+        }
+        return path.toString();
     }
 }
