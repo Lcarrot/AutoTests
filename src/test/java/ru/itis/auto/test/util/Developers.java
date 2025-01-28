@@ -1,4 +1,4 @@
-package ru.itis.auto.test;
+package ru.itis.auto.test.util;
 
 public class Developers {
 

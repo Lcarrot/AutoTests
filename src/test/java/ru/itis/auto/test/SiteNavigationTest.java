@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import ru.itis.auto.test.util.Developers;
 
 @Owner(Developers.TEST_DEVELOPER)
 public class SiteNavigationTest extends BaseTest {

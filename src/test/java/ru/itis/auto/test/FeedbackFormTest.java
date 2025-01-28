@@ -5,6 +5,7 @@ import io.qameta.allure.Owner;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import ru.itis.auto.test.dto.FeedbackForm;
+import ru.itis.auto.test.util.Developers;
 
 @Owner(Developers.TEST_DEVELOPER)
 public class FeedbackFormTest extends BaseTest {

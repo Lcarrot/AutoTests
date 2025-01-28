@@ -6,6 +6,7 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.itis.auto.test.util.Developers;
 
 @Owner(Developers.TEST_DEVELOPER)
 public class SearchTest extends BaseTest {
@@ -36,7 +37,7 @@ public class SearchTest extends BaseTest {
     @Test
     @DisplayName("Неуспешный поиск по слову")
     @Description("Ищем материалы по слову 'качампваа'")
-    public void sfindNoneByWordInContentTest() {
+    public void findNoneByWordInContentTest() {
         String searchText = "качампваа";
         setValueToInput(By.id("search-searchword"), searchText);
         clickOnElement(By.id("searchphraseany"));

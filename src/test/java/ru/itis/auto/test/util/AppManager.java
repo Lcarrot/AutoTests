@@ -1,4 +1,4 @@
-package ru.itis.auto.test;
+package ru.itis.auto.test.util;
 
 import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;

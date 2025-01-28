@@ -6,7 +6,7 @@ import org.junit.jupiter.api.extension.TestWatcher;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.logging.LogType;
-import ru.itis.auto.test.AppManager;
+import ru.itis.auto.test.util.AppManager;
 
 public class TestListener implements TestWatcher {
 

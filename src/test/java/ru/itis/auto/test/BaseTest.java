@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.itis.auto.test.allure.TestListener;
 import ru.itis.auto.test.dto.UrlBuilder;
+import ru.itis.auto.test.util.AppManager;
 
 import java.time.Duration;
 
